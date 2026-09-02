@@ -1,1 +1,3 @@
-export { client } from './src/index.js';
+export { client } from './dist/index.js';
+
+

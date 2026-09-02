@@ -2,15 +2,19 @@
   "name": "@repo/db",
   "version": "1.0.0",
   "type": "module",
-  "main": "./index.js",
+  "main": "./dist/index.js",
+  "scripts": {
+    "build": "tsc"
+  },
   "exports": {
-    ".": "./index.js",
-    "./client": "./src/index.js"
+    ".": "./dist/index.js",
+    "./client": "./dist/index.js"
   },
   "devDependencies": {
     "@prisma/client": "5.22.0",
     "@repo/typescript-config": "*",
-    "prisma": "5.22.0"
+    "prisma": "5.22.0",
+    "typescript": "7.0.2"
   },
   "license": "MIT"
 }
