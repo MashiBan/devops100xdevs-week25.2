@@ -14,8 +14,11 @@ jobs:
     steps:
       - name: SSH Into server
         run: |
+          mkdir -p ~/.ssh
+          chmod 700 ~/.ssh
           echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/ssh_key
           chmod 600 ~/ssh_key
+          ssh-keyscan -H 13.61.155.151 >> ~/.ssh/known_hosts
           ssh -i ~/ssh_key ubuntu@13.61.155.151 '
             cd ~/devops100xdevs-week25.2 && \
             git pull && \
