@@ -24,6 +24,8 @@ jobs:
           ssh -i ~/.ssh/id_ed25519 ubuntu@13.61.155.151 '
             cd ~/devops100xdevs-week25.2 && \
             git pull origin main && \
+            npm install -g yarn@1.22.22 >/dev/null 2>&1 || true && \
+            export PATH="$PATH:$(npm prefix -g)/bin" && \
             yarn install --frozen-lockfile && \
             yarn build && \
             pm2 restart http-server && \
