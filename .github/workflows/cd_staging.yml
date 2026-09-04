@@ -28,6 +28,7 @@ jobs:
             if [ -s "$NVM_DIR/nvm.sh" ]; then . "$NVM_DIR/nvm.sh"; fi && \
             nvm use 24 >/dev/null 2>&1 || true && \
             npm install -g yarn@1.22.22 >/dev/null 2>&1 || true && \
+            npm install -g pm2 >/dev/null 2>&1 || true && \
             export PATH="$PATH:$(npm prefix -g 2>/dev/null || echo /usr/local)/bin" && \
             yarn install --frozen-lockfile && \
             yarn build && \
