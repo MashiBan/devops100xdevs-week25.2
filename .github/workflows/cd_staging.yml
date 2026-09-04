@@ -32,8 +32,8 @@ jobs:
             export PATH="$PATH:$(npm prefix -g 2>/dev/null || echo /usr/local)/bin" && \
             yarn install --frozen-lockfile && \
             yarn build && \
-            pm2 restart http-server && \
-            pm2 restart fe-server && \
-            pm2 restart ws-server
+            pm2 restart http-server || pm2 start "node /home/ubuntu/devops100xdevs-week25.2/apps/http-server/dist/index.js" --name http-server && \
+            pm2 restart fe-server || pm2 start "yarn --cwd /home/ubuntu/devops100xdevs-week25.2/apps/web start" --name fe-server && \
+            pm2 restart ws-server || pm2 start "node /home/ubuntu/devops100xdevs-week25.2/apps/ws-server/dist/index.js" --name ws-server
           '
 
